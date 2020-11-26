@@ -39,4 +39,14 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReimServlet</display-name>
+    <servlet-name>ReimServlet</servlet-name>
+    <servlet-class>com.revature.web.ReimServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReimServlet</servlet-name>
+    <url-pattern>/reimb</url-pattern>
+  </servlet-mapping>
 </web-app>

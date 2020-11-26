@@ -35,6 +35,8 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		
+		
 		log.info("User attempeted to login with username " + username);
 		int u = UsersDao.confirmLogin(username, password);
 		
