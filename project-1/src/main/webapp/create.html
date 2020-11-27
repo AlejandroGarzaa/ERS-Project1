@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome!</title>
+<title>Reimbursement</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -18,36 +18,40 @@
 
 
 	<div class="container-fluid">
-		<form method="post" action="reimb"> 
+		<form method="post" action="reimb">
 		
+
 			<div class="form-group">
-				<label for="exampleFormControlSelect1">
-				Select Reimbursement Type
-				<ol>
-				<li>Lodging</li>
-				<li>Travel</li>
-				<li>Food</li>
-				<li>Other</li>
-				</ol>
-				</label> 
-				<input type="number"
-					class="form-control" name="type" id="type"
-					aria-describedby="emailHelp" placeholder="Enter number">
-				
+				<label for="rId">USER ID</label> <input
+					type="text" class="form-control" name="username" id="rAmount"
+					aria-describedby="emailHelp" placeholder="Enter user Id">
 			</div>
 
 			<div class="form-group">
-				<label for="rAmount">REIMBURSEMENT AMOUNT</label> 
-				<input type="number"
-					class="form-control" name="amount" id="rAmount"
+				<label for="exampleFormControlSelect1"> Select Reimbursement
+					Type
+					<ol>
+						<li>Lodging</li>
+						<li>Travel</li>
+						<li>Food</li>
+						<li>Other</li>
+					</ol>
+				</label> <input type="number" class="form-control" name="type" id="type"
+					aria-describedby="emailHelp" placeholder="Enter number">
+
+			</div>
+
+			<div class="form-group">
+				<label for="rAmount">REIMBURSEMENT AMOUNT</label> <input
+					type="number" class="form-control" name="amount" id="rAmount"
 					aria-describedby="emailHelp" placeholder="Enter amount">
 			</div>
 
 			<div class="form-group">
-				<label for="rDescription">REIMBURSEMENT DESCRIPTION</label>
-				<input type="text"
-					class="form-control" name="description" id="desc"
-					aria-describedby="emailHelp" placeholder="Enter reimbursement description">
+				<label for="rDescription">REIMBURSEMENT DESCRIPTION</label> <input
+					type="text" class="form-control" name="description" id="desc"
+					aria-describedby="emailHelp"
+					placeholder="Enter reimbursement description">
 			</div>
 
 

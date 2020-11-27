@@ -2,6 +2,7 @@ package com.revature.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import com.revature.dto.UsersDto;
+import com.revature.models.Users;
 import com.revature.repos.ReimbursementDao;
 import com.revature.repos.UsersDao;
 import com.revature.util.HtmlTemplate;
@@ -31,20 +34,25 @@ public class ReimServlet extends HttpServlet {
 
 
     	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    		
+    		String user = request.getParameter("username");
     		int amount = Integer.parseInt(request.getParameter("amount"));
     		String desc = request.getParameter("description");
     		int type = Integer.parseInt(request.getParameter("type"));
     		
-    		log.info("User entered amount " + amount + ",For " + desc + " , type "+ type);
+    		
+    		int name = UsersDao.userId(user);
+    		
+    
+    		
+    		log.info("User entered amount " + amount + ",For " + desc + " , type "+ type+ ", id:" + name);
     		
 //    		// create method to insert reim
-//    		boolean r = ReimbursementDao.insert(amount, desc, type);
+    		int r = ReimbursementDao.insert(amount, desc, type, name);
 //    		
 //    		
 //    		
-    		if ( type==1) {
-   			RequestDispatcher rd = request.getRequestDispatcher("logout.html");// we want to send our user to the home page!
+    		if ( r==7) {
+   			RequestDispatcher rd = request.getRequestDispatcher("success.html");// we want to send our user to the home page!
    			rd.forward(request, response);
 //    			log.info(" has successfully inserted reimb");
     		}		
@@ -52,7 +60,7 @@ public class ReimServlet extends HttpServlet {
 //  
     		else {
     			
-   			RequestDispatcher rd2 = request.getRequestDispatcher("home.html");// we want to send our user to the home page!
+   			RequestDispatcher rd2 = request.getRequestDispatcher("error.html");// we want to send our user to the home page!
    			rd2.forward(request, response);
 //    			PrintWriter pw = HtmlTemplate.getHtmlWriter(response);
     			log.info(" has failed to insert reim");

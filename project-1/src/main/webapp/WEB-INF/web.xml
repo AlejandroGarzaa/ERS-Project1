@@ -49,4 +49,14 @@
     <servlet-name>ReimServlet</servlet-name>
     <url-pattern>/reimb</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewServlet</display-name>
+    <servlet-name>ViewServlet</servlet-name>
+    <servlet-class>com.revature.web.ViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewServlet</servlet-name>
+    <url-pattern>/view</url-pattern>
+  </servlet-mapping>
 </web-app>
