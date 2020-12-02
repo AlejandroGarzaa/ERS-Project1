@@ -7,40 +7,33 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.models.Reimbursement;
-import com.revature.models.Users;
-import com.revature.repos.ReimbursementDao;
-import com.revature.repos.UsersDao;
 import com.revature.util.ConnectionUtil;
 import com.revature.util.HtmlTemplate;
 
 /**
- * Servlet implementation class ViewServlet
+ * Servlet implementation class EmpViewServlet
  */
-public class ViewServlet extends HttpServlet {
+public class EmpViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewServlet() {
+    public EmpViewServlet() {
+        super();
+        // TODO Auto-generated constructor stub
     }
-        
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = HtmlTemplate.getHtmlWriter(response);
 		
-				// we will create an html page on the fly
-//		pw.println("<h3 style='color:red'>Denied</h3>");
-//		pw.println("<p>Username or password is incorrect</p>");
-		
-		
+
 		
 		
 	    pw.println("<html>");
@@ -69,7 +62,7 @@ public class ViewServlet extends HttpServlet {
 		pw.println("<th> Type</th>");
 		pw.println("</tr>");
 		try (Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "SELECT * FROM ers_reimbursements;";
+			String sql = "SELECT * FROM ers_reimbursements where username=;";
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -108,19 +101,3 @@ public class ViewServlet extends HttpServlet {
 		
 	}
 }
-
-
-		
-//		
-//		List<Reimbursement> list = ReimbursementDao.findAll();
-//		pw.println("<table border=2px><tr>");
-//		for (Reimbursement  r : list) {
-//			pw.println("<th>" + r + "</th>");
-//
-//		
-//			pw.println("</tr></table>");
-//		}
-//	}
-//}
-//
-

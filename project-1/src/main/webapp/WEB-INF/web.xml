@@ -59,4 +59,14 @@
     <servlet-name>ViewServlet</servlet-name>
     <url-pattern>/view</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmpViewServlet</display-name>
+    <servlet-name>EmpViewServlet</servlet-name>
+    <servlet-class>com.revature.web.EmpViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmpViewServlet</servlet-name>
+    <url-pattern>/EmpViewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

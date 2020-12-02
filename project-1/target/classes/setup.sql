@@ -35,6 +35,7 @@ CREATE TABLE ers_users(
 
 insert into ers_users (username, user_password,user_first_name,user_last_name,user_email,user_role_id ) values ('alej','alejpassword','alejandro','garza','alej@gmail.com',1);
 insert into ers_users (username, user_password,user_first_name,user_last_name,user_email,user_role_id ) values ('man1','password','manager','scott','scott@gmail.com',2);
+insert into ers_users (username, user_password,user_first_name,user_last_name,user_email,user_role_id ) values ('user2','2password','billy','bob','billy@gmail.com',1);
 ----------------------------------------
 
 DROP TABLE IF EXISTS ers_user_roles;
@@ -80,4 +81,18 @@ BEFORE INSERT
 ON ers_reimbursements
 FOR EACH ROW
 	EXECUTE PROCEDURE set_current_time_f();
+----------------------------------------
+CREATE OR REPLACE FUNCTION set_current_time_r()
+RETURNS TRIGGER AS $$
+BEGIN
+   NEW.reimb_resolved = now();
+   RETURN NEW;
+END;
+$$ language plpgsql;
 
+CREATE TRIGGER set_current_times
+BEFORE INSERT
+ON ers_reimbursements
+FOR EACH ROW
+	EXECUTE PROCEDURE set_current_time_r();
+	

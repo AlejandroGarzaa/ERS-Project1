@@ -7,25 +7,26 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-	
+
 
 </script>
 
 </head>
 <body>
 
-<div class="jumbotron">
-	<h1 id="welcome">You are logged in!</h1>
-	signed in as manager
-	<br>
-	<button type="button" class="btn btn-success" href= "reim.html">View employee reimbursements</button>
-	
-	
-</div>
-	
-<div>
-<a class="btn btn success" href= "logout.html" >LOGOUT</a>
-</div>
+	<div class="jumbotron">
+		<h1 id="welcome">You are logged in!</h1>
+		signed in as manager <br>
+		<form action="view" method="Get">
+			<input  type="submit"
+				value="View Riembursements">
+		</form>
+
+	</div>
+
+	<div>
+		<a class="btn btn success" href="logout.html">LOGOUT</a>
+	</div>
 
 </body>
 </html>

@@ -27,8 +27,8 @@ public class ReimbursementDao {
 		PreparedStatement stmt = null;
 
 		try (Connection conn = ConnectionUtil.getConnection()) {
-			String sql = "INSERT INTO ers_reimbursements(reimb_amount, reimb_description,reimb_author_id, reimb_status_id, reimb_type_id) \r\n"
-					+ "			VALUES (?,?,?,3, ?);";
+			String sql = "INSERT INTO ers_reimbursements(reimb_amount, reimb_description,reimb_author_id,reimb_resolver_id, reimb_status_id, reimb_type_id) \r\n"
+					+ "			VALUES (?,?,?,1,3, ?);";
 
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, amount);
